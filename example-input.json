@@ -1,0 +1,40 @@
+{
+    "serviceName": "housecleaning",
+    "basePrice": 35,
+    "variations": {
+        "apartmentSize": [
+            {
+                "expression": "50 > ${X}",
+                "price": 30,
+                "rank": 1
+            },
+            {
+                "expression": "${X} > 50 && ${X} < 70",
+                "price": 42,
+                "rank": 1
+            },
+            {
+                "expression": "${X} == 25",
+                "price": 15,
+                "rank": 4
+            }
+        ]
+    },
+    "staticRules": [
+        {
+            "priceChange": 0.9,
+            "param": "date",
+            "expression": "(new Date('${X}')).getDay() == 5"
+        },
+        {
+            "priceChange": 1.2,
+            "param": "date",
+            "expression": "(new Date('${X}')).getDay() == 7"
+        },
+        {
+            "priceChange": 1.2,
+            "param": "withPolish",
+            "expression": "${X} == true"
+        }
+    ]
+}
